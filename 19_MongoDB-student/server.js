@@ -45,14 +45,23 @@ app.get('/', async (req, res) => {
 });
 
 // c) Insert array of student docs
+// c) Insert array of student docs
 app.post('/students/insert', async (req, res) => {
   try {
-    await Student.insertMany(req.body.students);
+    const studentsArray = JSON.parse(req.body.students);  // Parse the JSON string
+    await Student.insertMany(studentsArray);
     res.redirect('/');
   } catch (err) {
-    res.render('index', { count: 0, students: [], message: 'Insert Error: ' + err.message });
+    const count = await Student.countDocuments();
+    const students = await Student.find();
+    res.render('index', {
+      count,
+      students,
+      message: 'Insert Error: ' + err.message
+    });
   }
 });
+
 
 // e) Names with DSBDA > 20
 app.get('/students/dsbda', async (req, res) => {
@@ -121,3 +130,44 @@ app.post('/students/delete', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}`);
 });
+
+/*
+[
+  {
+    "Name": "Alice",
+    "Roll_No": 1,
+    "WAD_Marks": 35,
+    "CC_Marks": 40,
+    "DSBDA_Marks": 28,
+    "CNS_Marks": 30,
+    "AI_marks": 25
+  },
+  {
+    "Name": "Bob",
+    "Roll_No": 2,
+    "WAD_Marks": 20,
+    "CC_Marks": 22,
+    "DSBDA_Marks": 19,
+    "CNS_Marks": 30,
+    "AI_marks": 35
+  },
+  {
+    "Name": "Charlie",
+    "Roll_No": 3,
+    "WAD_Marks": 42,
+    "CC_Marks": 38,
+    "DSBDA_Marks": 45,
+    "CNS_Marks": 41,
+    "AI_marks": 40
+  },
+  {
+    "Name": "Diana",
+    "Roll_No": 4,
+    "WAD_Marks": 26,
+    "CC_Marks": 29,
+    "DSBDA_Marks": 22,
+    "CNS_Marks": 24,
+    "AI_marks": 27
+  }
+]
+  */
