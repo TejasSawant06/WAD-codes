@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Management</title>
+</head>
+<body>
+  <h1>Employee Records</h1>
+
+  <!-- Add new employee -->
+  <h2>Add New Employee</h2>
+  <form action="/add" method="POST">
+    <input name="name" placeholder="Name" required>
+    <input name="department" placeholder="Department" required>
+    <input name="designation" placeholder="Designation" required>
+    <input name="salary" type="number" placeholder="Salary" required>
+    <input name="joiningDate" type="date" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <!-- Update employee -->
+  <h2>Update Employee</h2>
+  <form action="/update" method="POST">
+    <input name="id" placeholder="Employee ID" required>
+    <input name="name" placeholder="Name">
+    <input name="department" placeholder="Department">
+    <input name="designation" placeholder="Designation">
+    <input name="salary" type="number" placeholder="Salary">
+    <input name="joiningDate" type="date">
+    <button type="submit">Update</button>
+  </form>
+
+  <!-- Delete employee -->
+  <h2>Delete Employee</h2>
+  <form action="/delete" method="POST">
+    <input name="id" placeholder="Employee ID" required>
+    <button type="submit">Delete</button>
+  </form>
+
+  <!-- View all employees -->
+  <h2>All Employees</h2>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Dept</th><th>Desig</th><th>Salary</th><th>Joining Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% employees.forEach(emp => { %>
+        <tr>
+          <td><%= emp._id %></td>
+          <td><%= emp.name %></td>
+          <td><%= emp.department %></td>
+          <td><%= emp.designation %></td>
+          <td><%= emp.salary %></td>
+          <td><%= emp.joiningDate.toISOString().split('T')[0] %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

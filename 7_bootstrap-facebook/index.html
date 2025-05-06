@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facebook - Login or Sign Up</title>
+  
+  <!-- Local Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <style>
+    body {
+      background: #f0f3f5;
+    }
+    .top-bar {
+      background: #3b5998;
+      padding: 10px;
+    }
+    .top-bar input {
+      margin-right: 10px;
+    }
+    .login-btn {
+      background: white;
+      color: #3b5998;
+      border: none;
+      padding: 5px 10px;
+    }
+    .signup-btn {
+      background: green;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Login Bar -->
+<div class="top-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="text-white m-0">facebook</h1>
+    <form class="d-flex">
+      <input type="text" class="form-control form-control-sm" placeholder="Email or Username">
+      <input type="password" class="form-control form-control-sm" placeholder="Password">
+      <button class="login-btn">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container my-5">
+  <div class="row">
+    
+    <!-- Left Text and Image -->
+    <div class="col-md-6 mb-4 text-center">
+      <h2>Facebook is useless without friends.<br>Make More Friends.</h2>
+      <img src="images/connect.png" alt="connect" class="img-fluid mt-4">
+    </div>
+
+    <!-- Right Signup Form -->
+    <div class="col-md-6">
+      <h2>Create an Account</h2>
+      <p>It's free and always will be.</p>
+      
+      <form>
+        <div class="row mb-2">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Firstname">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Lastname">
+          </div>
+        </div>
+
+        <input type="email" class="form-control mb-2" placeholder="Email">
+        <input type="email" class="form-control mb-2" placeholder="Re-enter Email">
+        <input type="password" class="form-control mb-2" placeholder="Password">
+        <input type="date" class="form-control mb-2">
+
+        <div class="mb-2">
+          <label><input type="radio" name="gender"> Male</label>
+          <label><input type="radio" name="gender"> Female</label>
+        </div>
+
+        <p>By clicking create an account, you agree to our Terms.</p>
+        <button class="signup-btn mb-2">Signup</button>
+        <p><a href="#">Create a page for you.</a></p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- Local Bootstrap JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

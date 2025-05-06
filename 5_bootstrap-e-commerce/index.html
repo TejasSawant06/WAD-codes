@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Listing</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    .sidebar {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .filter-title {
+      font-weight: bold;
+      margin-top: 20px;
+    } 
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar Filters -->
+    <div class="col-md-3 mb-4">
+      <div class="sidebar">
+        <h4>Filters</h4>
+        <hr>
+        <div class="mb-3">
+          <label class="filter-title">Target Market</label> 
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="usa">
+            <label class="form-check-label" for="usa">USA</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="uk">
+            <label class="form-check-label" for="uk">United Kingdom</label>
+          </div>
+          <!-- Add more options similarly -->
+        </div>
+
+        <div class="mb-3">
+          <label class="filter-title">Print Area</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="frontside">
+            <label class="form-check-label" for="frontside">Front Side</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="filter-title">Print Providers</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="artsadd">
+            <label class="form-check-label" for="artsadd">ArtsAdd</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Products -->    
+    <div class="col-md-9">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Mugs</h2>
+        <!-- Sort Dropdown -->
+        <select class="form-select w-auto">
+          <option selected>Sort by Popularity</option>
+          <option>Price Low to High</option>
+          <option>Price High to Low</option>
+        </select>
+      </div>
+
+      <div class="row g-4">
+        <!-- Product Card 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/mug1.jpg" class="card-img-top" alt="Mug 1">
+            <div class="card-body">
+              <h5 class="card-title">Ceramic Mug 11oz</h5>
+              <p class="card-text">From ₹330</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/mug1.jpg" class="card-img-top" alt="Mug 2">
+            <div class="card-body">
+              <h5 class="card-title">Accent Coffee Mug</h5>
+              <p class="card-text">From ₹380</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/mug1.jpg" class="card-img-top" alt="Mug 3">
+            <div class="card-body">
+              <h5 class="card-title">White Ceramic Mug</h5>
+              <p class="card-text">From ₹450</p>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <!-- More Product Cards... -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

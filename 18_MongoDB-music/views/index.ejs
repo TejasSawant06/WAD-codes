@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Collection</title>
+</head>
+<body>
+  <h1>Music Collection (<%= count %> songs)</h1>
+  <% if (message) { %>
+    <p><strong><%= message %></strong></p>
+  <% } %>
+
+ 
+
+  <!-- h) Add one new favourite song -->
+  <form action="/songs/add" method="POST">
+    <h2>Add Favorite Song</h2>
+    <input name="song[Songname]" placeholder="Songname" required>
+    <input name="song[Film]" placeholder="Film" required>
+    <input name="song[Music_director]" placeholder="Music Director" required>
+    <input name="song[singer]" placeholder="Singer" required>
+    <button type="submit">Add Song</button>
+  </form>
+
+  <!-- e) By Director -->
+  <form action="/songs/by-director" method="GET">
+    <h2>List by Music Director</h2>
+    <input name="director" placeholder="Director" required>
+    <button type="submit">Show</button>
+  </form>
+
+  <!-- f) By Director & Singer -->
+  <form action="/songs/by-director-singer" method="GET">
+    <h2>By Director AND Singer</h2>
+    <input name="director" placeholder="Director" required>
+    <input name="singer" placeholder="Singer" required>
+    <button type="submit">Show</button>
+  </form>
+
+  <!-- i) By Singer & Film -->
+  <form action="/songs/by-singer-film" method="GET">
+    <h2>By Singer & Film</h2>
+    <input name="singer" placeholder="Singer" required>
+    <input name="film" placeholder="Film" required>
+    <button type="submit">Show</button>
+  </form>
+
+  <!-- j) Update Cast -->
+  <form action="/songs/update-cast" method="POST">
+    <h2>Add Actor & Actress to a Song</h2>
+    <input name="id" placeholder="Song _id" required>
+    <input name="Actor" placeholder="Actor Name" required>
+    <input name="Actress" placeholder="Actress Name" required>
+    <button type="submit">Update Cast</button>
+  </form>
+
+  <!-- g) Delete a song -->
+  <form action="/songs/delete" method="POST">
+    <h2>Delete a Song</h2>
+    <input name="id" placeholder="Song _id" required>
+    <button type="submit">Delete</button>
+  </form>
+
+  <!-- k) Display all in table -->
+  <h2>All Songs</h2>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Songname</th><th>Film</th><th>Director</th><th>Singer</th>
+        <th>Actor</th><th>Actress</th><th>_id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% songs.forEach(song => { %>
+        <tr>
+          <td><%= song.Songname %></td>
+          <td><%= song.Film %></td>
+          <td><%= song.Music_director %></td>
+          <td><%= song.singer %></td>
+          <td><%= song.Actor || '-' %></td>
+          <td><%= song.Actress || '-' %></td>
+          <td><%= song._id %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User List</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: white;
+      margin-bottom: 0.8rem;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    li strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #222;
+    }
+    li span {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>User List</h1>
+  <ul id="user-list">
+    <li>Loading users...</li>
+  </ul>
+
+  <script>
+    async function fetchUsers() {
+      try {
+        const response = await fetch('/api/users');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const users = await response.json();
+        const userList = document.getElementById('user-list');
+        userList.innerHTML = '';
+        if (users.length === 0) {
+          userList.innerHTML = '<li>No users found.</li>';
+          return;
+        }
+        users.forEach(user => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${user.name}</strong><span>${user.email}</span>`;
+          userList.appendChild(li);
+        });
+      } catch (err) {
+        const userList = document.getElementById('user-list');
+        userList.innerHTML = '<li>Error loading users.</li>';
+        console.error('Failed to fetch users:', err);
+      }
+    }
+
+    fetchUsers();
+  </script>
+</body>
+</html>

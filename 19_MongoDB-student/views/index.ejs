@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Marks</title>
+</head>
+<body>
+  <h1>Student Marks Collection (<%= count %> docs)</h1>
+  <% if (message) { %>
+    <p><strong><%= message %></strong></p>
+  <% } %>
+
+  <!-- c) Bulk insert -->
+  <form action="/students/insert" method="POST">
+    <h2>Insert Students Array</h2>
+    <textarea name="students" rows="6" cols="60" placeholder='[
+  {"Name":"...","Roll_No":1,"WAD_Marks":...,"CC_Marks":...,"DSBDA_Marks":...,"CNS_Marks":...,"AI_marks":...},
+  … more …
+]'></textarea><br>
+    <button type="submit">Insert</button>
+  </form>
+
+  <!-- e) DSBDA > 20 -->
+  <form action="/students/dsbda" method="GET">
+    <h2>Students with DSBDA > 20</h2>
+    <button type="submit">Show</button>
+  </form>
+
+  <!-- f) Update by Roll_No -->
+  <form action="/students/update" method="POST">
+    <h2>Update Marks (+10) for Roll_No:</h2>
+    <input name="rollNo" placeholder="Roll No" required>
+    <button type="submit">Update</button>
+  </form>
+
+  <!-- g) >25 in all subjects -->
+  <form action="/students/allsubjects" method="GET">
+    <h2>All subjects > 25</h2>
+    <button type="submit">Show</button>
+  </form>
+
+  <!-- h) <40 in WAD & CC -->
+  <form action="/students/mathsscience" method="GET">
+    <h2>WAD & CC < 40</h2>
+    <button type="submit">Show</button>
+  </form>
+
+  <!-- i) Delete student -->
+  <form action="/students/delete" method="POST">
+    <h2>Delete by Roll_No:</h2>
+    <input name="rollNo" placeholder="Roll No" required>
+    <button type="submit">Delete</button>
+  </form>
+
+  <!-- j) Display table -->
+  <h2>All Students</h2>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Name</th><th>Roll_No</th><th>WAD</th><th>CC</th>
+        <th>DSBDA</th><th>CNS</th><th>AI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach(s => { %>
+        <tr>
+          <td><%= s.Name %></td>
+          <td><%= s.Roll_No %></td>
+          <td><%= s.WAD_Marks %></td>
+          <td><%= s.CC_Marks %></td>
+          <td><%= s.DSBDA_Marks %></td>
+          <td><%= s.CNS_Marks %></td>
+          <td><%= s.AI_marks %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

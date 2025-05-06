@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Vallabh Desai",
+        "designation": "Software Engineer",
+        "department": "Engineering",
+        "salary": 75000,
+        "profileImage": "https://imgs.search.brave.com/ZOXlaYA6iJn_hxETdxg4Fij9rDlPARXWgK0GKwhdLvA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c3BvcnRwaG90b2dh/bGxlcnkuY29tL2Nv/bnRlbnQvaW1hZ2Vz/L2Ntc2ZpbGVzL3By/b2R1Y3QvNDY3OTIv/NDc4NjktbGlzdC5q/cGc"
+    },
+    {
+        "id": 2,
+        "name": "Michael John",
+        "designation": "Project Manager",
+        "department": "Management",
+        "salary": 90000,
+        "profileImage":  "https://imgs.search.brave.com/ZOXlaYA6iJn_hxETdxg4Fij9rDlPARXWgK0GKwhdLvA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c3BvcnRwaG90b2dh/bGxlcnkuY29tL2Nv/bnRlbnQvaW1hZ2Vz/L2Ntc2ZpbGVzL3By/b2R1Y3QvNDY3OTIv/NDc4NjktbGlzdC5q/cGc"
+    },
+    {
+        "id": 3,
+        "name": "Sarah Patel",
+        "designation": "Data Analyst",
+        "department": "Analytics",
+        "salary": 65000,
+        "profileImage":  "https://imgs.search.brave.com/ZOXlaYA6iJn_hxETdxg4Fij9rDlPARXWgK0GKwhdLvA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c3BvcnRwaG90b2dh/bGxlcnkuY29tL2Nv/bnRlbnQvaW1hZ2Vz/L2Ntc2ZpbGVzL3By/b2R1Y3QvNDY3OTIv/NDc4NjktbGlzdC5q/cGc"
+    },
+    {
+        "id": 4,
+        "name": "David Rodriguez",
+        "designation": "HR Specialist",
+        "department": "Human Resources",
+        "salary": 55000,
+        "profileImage":  "https://imgs.search.brave.com/ZOXlaYA6iJn_hxETdxg4Fij9rDlPARXWgK0GKwhdLvA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c3BvcnRwaG90b2dh/bGxlcnkuY29tL2Nv/bnRlbnQvaW1hZ2Vz/L2Ntc2ZpbGVzL3By/b2R1Y3QvNDY3OTIv/NDc4NjktbGlzdC5q/cGc"
+    }
+]

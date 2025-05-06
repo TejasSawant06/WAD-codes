@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Product Catalog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Product Catalog</h2>
+
+<table id="productTable">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Products will appear here -->
+  </tbody>
+</table>
+
+<div class="pagination">
+  <button onclick="previousPage()">Previous</button>
+  <span id="pageInfo">Page 1</span>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+  // Simple product list (using local images)
+  const products = [
+    { image: 'images/headphones.jpg', name: 'Wireless Headphones', price: '₹7,999', desc: 'Noise-cancelling headphones.' },
+    { image: 'images/headphones.jpg', name: 'Smartwatch', price: '₹12,999', desc: 'Fitness tracking smartwatch.' },
+    { image: 'images/headphones.jpg', name: 'Gaming Mouse', price: '₹2,499', desc: 'Ergonomic gaming mouse.' },
+    { image: 'images/headphones.jpg', name: 'Laptop Stand', price: '₹1,999', desc: 'Adjustable laptop stand.' },
+    { image: 'images/headphones.jpg', name: 'Bluetooth Speaker', price: '₹1,499', desc: 'Portable speaker.' },
+    { image: 'images/headphones.jpg', name: 'Mechanical Keyboard', price: '₹5,999', desc: 'RGB mechanical keyboard.' },
+    { image: 'images/headphones.jpg', name: 'HD Monitor', price: '₹15,999', desc: '24-inch monitor.' },
+    { image: 'images/headphones.jpg', name: 'Tablet', price: '₹20,999', desc: 'Android tablet.' },
+    { image: 'images/headphones.jpg', name: 'DSLR Camera', price: '₹45,999', desc: 'Professional camera.' },
+    { image: 'images/headphones.jpg', name: 'Router', price: '₹2,799', desc: 'Dual-band router.' },
+    { image: 'images/headphones.jpg', name: 'Wireless Printer', price: '₹7,499', desc: 'All-in-one printer.' }
+  ];
+
+  let currentPage = 1;
+  const productsPerPage = 5;
+
+  function showProducts() {
+    const start = (currentPage - 1) * productsPerPage;
+    const end = start + productsPerPage;
+    const tableBody = document.querySelector("#productTable tbody");
+    tableBody.innerHTML = "";
+
+    for (let i = start; i < end && i < products.length; i++) {
+      const product = products[i];
+      const row = `<tr>
+                    <td><img src="${product.image}" alt="Product Image"></td>
+                    <td>${product.name}</td>
+                    <td>${product.price}</td>
+                    <td>${product.desc}</td>
+                  </tr>`;
+      tableBody.innerHTML += row;
+    }
+
+    document.getElementById('pageInfo').textContent = `Page ${currentPage}`;
+  }
+
+  function nextPage() {
+    if (currentPage * productsPerPage < products.length) {
+      currentPage++;
+      showProducts();
+    }
+  }
+
+  function previousPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      showProducts();
+    }
+  }
+
+  // First time show
+  showProducts();
+</script>
+
+</body>
+</html>

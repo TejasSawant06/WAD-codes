@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="bg-white p-4 rounded shadow">
+    <h2 class="text-center mb-4">Event Registration</h2>
+
+    <form>
+
+      <!-- Full Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" required
+               pattern="[A-Za-z\s]{3,}" placeholder="Enter your full name"
+               title="Name should have at least 3 letters and only alphabets/spaces">
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required
+               placeholder="Enter your email">
+      </div>
+
+      <!-- Phone -->
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="tel" id="phone" name="phone" class="form-control" required
+               pattern="[0-9]{10}" placeholder="10-digit phone number"
+               title="Enter a valid 10-digit phone number">
+      </div>
+
+      <!-- Event Select -->
+      <div class="mb-3">
+        <label for="event" class="form-label">Select Event</label>
+        <select id="event" name="event" class="form-select" required>
+          <option value="">Choose...</option>
+          <option>Workshop</option>
+          <option>Seminar</option>
+          <option>Competition</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
